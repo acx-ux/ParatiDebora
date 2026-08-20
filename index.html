@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti, mi amor 💖</title>
+<style>
+  :root {
+    --color1: #ff6b9d;
+    --color2: #c06c84;
+    --color3: #6c5b7b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #1a0033 0%, #4a0e4e 50%, #81265e 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: #fff;
+  }
+
+  /* Estrellas de fondo */
+  .stars {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 3s infinite;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  /* Corazones flotantes */
+  .floating-heart {
+    position: fixed;
+    color: #ff6b9d;
+    font-size: 20px;
+    pointer-events: none;
+    animation: floatUp 8s linear infinite;
+    z-index: 1;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+  }
+
+  /* Secciones */
+  section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    background: linear-gradient(45deg, #ffb6d9, #ff6b9d, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+    animation: glow 3s ease-in-out infinite;
+  }
+  @keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255,107,157,0.5)); }
+    50% { filter: drop-shadow(0 0 25px rgba(255,107,157,0.9)); }
+  }
+
+  p { font-size: 1.2rem; line-height: 1.8; max-width: 600px; margin: 10px 0; }
+
+  /* Botón mágico */
+  .magic-btn {
+    padding: 18px 45px;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #ff6b9d, #c06c84);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255,107,157,0.5);
+    transition: all 0.3s;
+    font-family: inherit;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+  }
+  .magic-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255,107,157,0.8);
+  }
+  .magic-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+  }
+  .magic-btn:hover::before { left: 100%; }
+
+  /* ============ PANTALLA DE CONTRASEÑA ============ */
+  #pantallaClave {
+    background: radial-gradient(circle at center, #4a0e4e 0%, #1a0033 100%);
+  }
+
+  .cofre-container {
+    perspective: 1000px;
+    margin: 30px 0;
+  }
+
+  .cofre {
+    width: 280px;
+    height: 220px;
+    position: relative;
+    margin: 0 auto;
+    animation: flotar 3s ease-in-out infinite;
+  }
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  .cofre-body {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #8b6914 0%, #d4a017 50%, #8b6914 100%);
+    border-radius: 15px 15px 20px 20px;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(212, 160, 23, 0.4), inset 0 -10px 20px rgba(0,0,0,0.3);
+    border: 3px solid #ffd700;
+  }
+
+  .cofre-body::before {
+    content: '✝';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    animation: brilloCruz 2s infinite;
+  }
+  @keyframes brilloCruz {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+    50% { text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.6); }
+  }
+
+  .cofre-cerradura {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+
+  .pista-box {
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 15px;
+    padding: 25px;
+    max-width: 500px;
+    margin: 30px auto;
+    backdrop-filter: blur(10px);
+  }
+  .pista-box h3 {
+    color: #ffd700;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  .pista-box p {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #ffe4a3;
+  }
+
+  .input-clave {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 215, 0, 0.5);
+    border-radius: 50px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-align: center;
+    width: 280px;
+    margin: 15px 0;
+    font-family: inherit;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s;
+  }
+  .input-clave:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+  .input-clave::placeholder { color: rgba(255,255,255,0.5); }
+
+  .mensaje-error {
+    color: #ffb6d9;
+    margin-top: 10px;
+    min-height: 25px;
+    font-style: italic;
+    transition: all 0.3s;
+  }
+
+  .btn-desbloquear {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    background: linear-gradient(45deg, #ffd700, #ff6b9d);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+    transition: all 0.3s;
+    margin-top: 15px;
+  }
+  .btn-desbloquear:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.7);
+  }
+
+  /* Versículos */
+  .versiculo {
+    background: rgba(255, 215, 0, 0.08);
+    border-left: 4px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px 25px;
+    margin: 25px 0;
+    max-width: 600px;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #ffe4a3;
+    text-align: left;
+    position: relative;
+  }
+  .versiculo::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 4rem;
+    color: #ffd700;
+    opacity: 0.3;
+    font-family: serif;
+  }
+  .versiculo .referencia {
+    display: block;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: bold;
+    color: #ffd700;
+    text-align: right;
+    font-size: 0.95rem;
+  }
+
+  /* Carta */
+  .carta {
+    background: rgba(255, 248, 240, 0.95);
+    color: #4a0e4e;
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 600px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    font-family: 'Georgia', serif;
+    line-height: 1.8;
+    margin: 20px 0;
+    transform: scale(0);
+    transition: transform 0.8s;
+  }
+  .carta.visible { transform: scale(1); }
+  .carta h2 { color: #c06c84; margin-bottom: 20px; font-size: 2rem; }
+  .carta p { margin: 15px 0; font-size: 1.1rem; }
+  .firma { text-align: right; margin-top: 30px; font-style: italic; color: #c06c84; }
+
+  /* Sobre */
+  .envelope-container { perspective: 1000px; margin: 30px 0; }
+  .envelope {
+    width: 280px; height: 180px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+  .envelope:hover { transform: scale(1.05); }
+  .envelope-body {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #ff6b9d, #c06c84);
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+  }
+  .envelope-flap {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #ff85b1, #d4789a);
+    clip-path: polygon(0 0, 100% 0, 50% 60%);
+    transform-origin: top;
+    transition: transform 1s;
+    z-index: 3;
+  }
+  .envelope.open .envelope-flap { transform: rotateX(180deg); }
+  .letter {
+    position: absolute;
+    top: 20px; left: 20px;
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    background: #fff8f0;
+    border-radius: 5px;
+    transition: transform 1s 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c06c84;
+    font-style: italic;
+    font-size: 1.1rem;
+    padding: 15px;
+    z-index: 2;
+  }
+  .envelope.open .letter { transform: translateY(-200px) scale(1.2); }
+  .heart-seal {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    z-index: 4;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+  }
+
+  /* Razones */
+  .razones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 30px 0;
+  }
+  .razon-card {
+    background: linear-gradient(135deg, rgba(255,107,157,0.2), rgba(192,108,132,0.2));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 15px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.5s;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .razon-card:hover {
+    transform: translateY(-10px) rotate(2deg);
+    background: linear-gradient(135deg, rgba(255,107,157,0.4), rgba(192,108,132,0.4));
+    box-shadow: 0 20px 40px rgba(255,107,157,0.3);
+  }
+  .razon-num {
+    font-size: 3rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffb6d9, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  .razon-texto { font-size: 1rem; opacity: 0; transition: opacity 0.5s; }
+  .razon-card:hover .razon-texto { opacity: 1; }
+  .razon-card.revealed .razon-texto { opacity: 1; }
+
+  /* Contador */
+  .contador-box {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 30px 0;
+  }
+  .contador-numeros {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  .contador-item {
+    background: linear-gradient(135deg, #ff6b9d, #c06c84);
+    padding: 20px 25px;
+    border-radius: 15px;
+    min-width: 100px;
+    box-shadow: 0 10px 30px rgba(255,107,157,0.4);
+  }
+  .contador-item .num { font-size: 2.5rem; font-weight: bold; display: block; }
+  .contador-item .label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+
+  /* Mapa */
+  .mapa-container {
+    width: 100%;
+    max-width: 700px;
+    height: 350px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    position: relative;
+    margin: 30px 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .ciudad-pin {
+    position: absolute;
+    width: 20px; height: 20px;
+    background: #ff6b9d;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ff6b9d;
+    animation: pulsePin 2s infinite;
+  }
+  .ciudad-pin::after {
+    content: attr(data-nombre);
+    position: absolute;
+    top: 30px; left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-weight: bold;
+    background: rgba(0,0,0,0.6);
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+  @keyframes pulsePin {
+    0%, 100% { box-shadow: 0 0 20px #ff6b9d; }
+    50% { box-shadow: 0 0 40px #ff6b9d, 0 0 60px #ff6b9d; }
+  }
+  .linea-amor {
+    position: absolute;
+    top: 50%; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, #ff6b9d, #ffd700, #ff6b9d);
+    transform: translateY(-50%);
+    animation: lineFlow 3s linear infinite;
+  }
+  @keyframes lineFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  .corazon-viajero {
+    position: absolute;
+    top: 50%;
+    font-size: 2rem;
+    animation: travel 4s ease-in-out infinite;
+    transform: translateY(-50%);
+  }
+  @keyframes travel {
+    0% { left: 10%; }
+    50% { left: 85%; }
+    100% { left: 10%; }
+  }
+
+  /* Polaroids */
+  .polaroids {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin: 30px 0;
+  }
+  .polaroid {
+    background: white;
+    padding: 15px 15px 50px 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    width: 220px;
+    transform: rotate(var(--rot, -3deg));
+    transition: transform 0.4s;
+    cursor: pointer;
+    position: relative;
+  }
+  .polaroid:hover {
+    transform: rotate(0deg) scale(1.1);
+    z-index: 10;
+  }
+  .polaroid-img {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--color1), var(--color2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+  }
+  .polaroid-caption {
+    position: absolute;
+    bottom: 15px; left: 0; right: 0;
+    text-align: center;
+    color: #4a0e4e;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 1.2rem;
+  }
+
+  /* Oración final */
+  .oracion-box {
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 600px;
+    margin: 30px auto;
+    backdrop-filter: blur(10px);
+  }
+  .oracion-box h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+  }
+  .oracion-box p {
+    font-style: italic;
+    line-height: 1.8;
+  }
+
+  /* Pregunta final */
+  .pregunta-final { position: relative; padding: 40px; }
+  .btn-si, .btn-no {
+    padding: 18px 45px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    font-family: inherit;
+    transition: all 0.3s;
+  }
+  .btn-si {
+    background: linear-gradient(45deg, #ff6b9d, #ffd700);
+    color: white;
+    box-shadow: 0 10px 30px rgba(255,107,157,0.5);
+  }
+  .btn-si:hover { transform: scale(1.1); }
+  .btn-no {
+    background: #666;
+    color: white;
+    position: relative;
+    transition: all 0.2s;
+  }
+
+  /* Confeti */
+  .confeti {
+    position: fixed;
+    width: 10px; height: 10px;
+    pointer-events: none;
+    z-index: 1000;
+    animation: confetiFall 3s linear forwards;
+  }
+  @keyframes confetiFall {
+    0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+  }
+
+  .mensaje-final {
+    display: none;
+    animation: fadeInUp 1s;
+  }
+  .mensaje-final.visible { display: block; }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .oculto { display: none; }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    font-size: 2rem;
+    opacity: 0.7;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-15px); }
+  }
+
+  /* Transición mágica al desbloquear */
+  .transicion-magica {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle, #ffd700 0%, transparent 70%);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    animation: flashMagico 1.5s ease-out;
+  }
+  @keyframes flashMagico {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(2); }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<!-- ============ PANTALLA DE CONTRASEÑA ============ -->
+<section id="pantallaClave">
+  <h1> Un secreto para ti </h1>
+  <p>Antes de abrir mi corazón, necesito que demuestres que me conoces...</p>
+
+  <div class="cofre-container">
+    <div class="cofre">
+      <div class="cofre-body">
+        <div class="cofre-cerradura">🔒</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pista-box">
+    <h3>🔑 Pista:</h3>
+    <p>"¿Qué familia formaríamos juntos?"</p>
+    <p style="font-size: 0.95rem; margin-top: 10px; color: #ffb6d9;">
+      (Te lo repeti en varias ocasiones, si no lo escribes no podras abrir mi corazon amor :))
+    </p>
+  </div>
+
+  <input type="text" class="input-clave" id="inputClave" placeholder="Escribe la clave..." autocomplete="off">
+  <br>
+  <button class="btn-desbloquear" onclick="verificarClave()">💝 Abrir mi corazón 💝</button>
+  <div class="mensaje-error" id="mensajeError"></div>
+
+  <div class="versiculo" style="margin-top: 40px;">
+    <span>Hallé al que ama mi alma.</span>
+    <span class="referencia">— Cantares 3:4</span>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 1: Bienvenida ============ -->
+<section id="seccion1" class="oculto">
+  <h1>✨ Para mi preciosaaaaaaaaa ✨</h1>
+  <p>Has desbloqueado lo que mi corazón guardaba para ti...</p>
+  <p style="font-size: 1.5rem; margin-top: 20px;">¿Lista para tu sorpresa?</p>
+  <button class="magic-btn" onclick="mostrarSeccion('seccion2')">💝 Comenzar 💝</button>
+  <div class="scroll-indicator">↓</div>
+</section>
+
+<!-- ============ SECCIÓN 2: Sobre ============ -->
+<section id="seccion2" class="oculto">
+  <h1>Una carta para ti 💌</h1>
+  <p>Haz clic en el sobre para abrirlo</p>
+  <div class="envelope-container">
+    <div class="envelope" id="envelope" onclick="abrirSobre()">
+      <div class="envelope-body"></div>
+      <div class="letter">Ábreme 💕</div>
+      <div class="envelope-flap"></div>
+      <div class="heart-seal">💖</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECCIÓN 3: Carta ============ -->
+<section id="seccion3" class="oculto">
+  <div class="carta" id="carta">
+    <h2>Mi amor,</h2>
+    <p>Estuve pensando en que podia preparar hoy para ti, pense en un devocional pero tambien en algo diferente que te podria gustar como este detalle</p>
+    <p>Ya sabes todo lo que siento por ti, siempre te lo repito pero tambien me gusta hacerte recordar, eres todo lo que quiero en mi vida y no me cansare de decirtelo. </p>
+    <p>Agradezco a Dios por todo lo que hace en mi vida y te agradezco a ti porque haces que mis dias sean aun mas bonitos. De verdad que no dejo de pensarte, nose que hiciste para estar en mi cabeza todo el tiempo jasjs</p>
+    <p>Te amo más de lo que mis palabras pueden expresar, y cada día te amo un poquito más que el anterior. Quiero que seas tu, casarme contigo y formar contigo una familia. Te voy a esperar porque solo quiero que seas tu. Que Dios siga fortaleciendonos siendo el centro de esta relacion</p>
+    <div class="firma">— De alguien que te ama demasiado cada dia: Acxel 💕</div>
+  </div>
+
+  <div class="versiculo">
+    <span>El amor es sufrido, es benigno; el amor no tiene envidia, no es presuntuoso, no se envanece; no hace nada indebido, no busca lo suyo, no se irrita, no guarda rencor; no se goza de la injusticia, mas se goza de la verdad. Todo lo sufre, todo lo cree, todo lo espera, todo lo soporta.</span>
+    <span class="referencia">— 1 Corintios 13:4-7</span>
+  </div>
+
+  <button class="magic-btn" onclick="mostrarSeccion('seccion4')">Continuar →</button>
+</section>
+
+<!-- ============ SECCIÓN 4: Razones ============ -->
+<section id="seccion4" class="oculto">
+  <h1>Razones por las que te amo 💖</h1>
+  <p>Presiona cada tarjeta amor</p>
+  <div class="razones-grid">
+    <div class="razon-card" onclick="this.classList.add('revealed')">
+      <div class="razon-num">1</div>
+      <div class="razon-texto">Porque eres muy bonita y muy hermosaaaaaaaaaa</div>
+    </div>
+    <div class="razon-card" onclick="this.classList.add('revealed')">
+      <div class="razon-num">2</div>
+      <div class="razon-texto">Eres atenta y muy burlona jajsja</div>
+    </div>
+    <div class="razon-card" onclick="this.classList.add('revealed')">
+      <div class="razon-num">3</div>
+      <div class="razon-texto">Porque me cuentas tus dias aun cuando no lo pido</div>
+    </div>
+    <div class="razon-card" onclick="this.classList.add('revealed')">
+      <div class="razon-num">4</div>
+      <div class="razon-texto">Tu fe y tu amor por Dios que me inspiran y me inspiraron mucho en su momento</div>
+    </div>
+    <div class="razon-card" onclick="this.classList.add('revealed')">
+      <div class="razon-num">5</div>
+      <div class="razon-texto">Eres mi lugar seguro y donde puedo olvidarme de muchas cosas :(</div>
+    </div>
+    <div class="razon-card" onclick="this.classList.add('revealed')">
+      <div class="razon-num">6</div>
+      <div class="razon-texto">Porque contigo todo es mejor y amo estar a tu lado</div>
+    </div>
+  </div>
+
+  <div class="versiculo">
+    <span>Por encima de todo, vístanse de amor, que es el vínculo perfecto.</span>
+    <span class="referencia">— Colosenses 3:14</span>
+  </div>
+
+  <button class="magic-btn" onclick="mostrarSeccion('seccion5')">Siguiente →</button>
+</section>
+
+<!-- ============ SECCIÓN 5: Contador ============ -->
+<section id="seccion5" class="oculto">
+  <h1>Nuestro tiempo juntos ⏰</h1>
+  <p>Cada segundo a tu lado es una bendición</p>
+  <div class="contador-box">
+    <div class="contador-numeros" id="contador">
+      <div class="contador-item"><span class="num" id="dias">0</span><span class="label">Días</span></div>
+      <div class="contador-item"><span class="num" id="horas">0</span><span class="label">Horas</span></div>
+      <div class="contador-item"><span class="num" id="minutos">0</span><span class="label">Minutos</span></div>
+      <div class="contador-item"><span class="num" id="segundos">0</span><span class="label">Segundos</span></div>
+    </div>
+    <p style="margin-top: 20px;">...y contando 💕</p>
+  </div>
+
+  <div class="versiculo">
+    <span>Este es el día que hizo el Señor; nos gozaremos y alegraremos en él.</span>
+    <span class="referencia">— Salmos 118:24</span>
+  </div>
+
+  <button class="magic-btn" onclick="mostrarSeccion('seccion6')">Siguiente →</button>
+</section>
+
+<!-- ============ SECCIÓN 6: Mapa ============ -->
+<section id="seccion6" class="oculto">
+  <h1>Aunque no nos podamos abrazar por la distancia 🌍</h1>
+  <p>Nuestros corazones siempre están conectados por Dios</p>
+  <div class="mapa-container">
+    <div class="ciudad-pin" id="pin1" data-nombre="Acxel" style="top: 50%; left: 10%;"></div>
+    <div class="linea-amor"></div>
+    <div class="corazon-viajero">💖</div>
+    <div class="ciudad-pin" id="pin2" data-nombre="Debora" style="top: 50%; left: 85%;"></div>
+  </div>
+  <p style="font-size: 1.3rem; margin-top: 20px;">La distancia solo separa cuerpos, no almas 💫</p>
+
+  <div class="versiculo">
+    <span>Mejores son dos que uno; porque tienen mejor paga de su trabajo. Porque si cayeren, el uno levantará a su compañero; pero ¡ay del solo! que cuando cayere, no habrá segundo que lo levante. También si dos durmieren juntos, se calentarán mutuamente; mas ¿cómo se calentará uno solo? Y si alguno prevaleciere contra uno, dos le resistirán; y cordón de tres dobleces no se rompe pronto.</span>
+    <span class="referencia">— Eclesiastés 4:9-12</span>
+  </div>
+
+  <button class="magic-btn" onclick="mostrarSeccion('seccion7')">Siguiente →</button>
+</section>
+
+<!-- ============ SECCIÓN 7: Polaroids ============ -->
+<section id="seccion7" class="oculto">
+  <h1>Nuestros momentos 📸</h1>
+  <p>Recuerdos que atesoro en el corazón</p>
+  <div class="polaroids">
+    <div class="polaroid" style="--rot: -5deg;">
+      <div class="polaroid-img" style="background-image: url('imagenes/foto1.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="polaroid-caption">Foto que aproveche tomarte jajsj</div>
+    </div>
+    <div class="polaroid" style="--rot: 3deg;">
+      <div class="polaroid-img" style="background-image: url('imagenes/foto2.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="polaroid-caption">Nuestras manos</div>
+    </div>
+    <div class="polaroid" style="--rot: -2deg;">
+      <div class="polaroid-img" style="background-image: url('imagenes/foto3.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="polaroid-caption">Juntos en Chosica</div>
+    </div>
+    <div class="polaroid" style="--rot: 4deg;">
+      <div class="polaroid-img" style="background-image: url('imagenes/foto4.jpg'); background-size: cover; background-position: center;"></div>
+      <div class="polaroid-caption">Juntos pero con IA jasj</div>
+    </div>
+  </div>
+  <p style="margin-top: 20px; font-style: italic;">Pronto tendremos muchos más 💕</p>
+
+  <div class="versiculo">
+    <span>Jehová te bendiga, y te guarde; Jehová haga resplandecer su rostro sobre ti, y tenga de ti misericordia; Jehová alce sobre ti su rostro, y ponga en ti paz.</span>
+    <span class="referencia">— Números 6:24-26</span>
+  </div>
+
+  <button class="magic-btn" onclick="mostrarSeccion('seccion8')">Una última cosa →</button>
+</section>
+
+<!-- ============ SECCIÓN 8: Oración y Pregunta ============ -->
+<section id="seccion8" class="oculto">
+  <h1>Nuestra oración juntos 🙏</h1>
+
+  <div class="oracion-box">
+    <h3> Esta es una breve oración para nuestro amor</h3>
+    <p>
+      Padre amado, gracias por todo lo que haces en nuestras vidas, porque no podiamos hacer nada sin ti. Gracias por hacer que nuestras camninos se puedan conectar y permitirnos poder tener una conexion tan unica. 
+      Te pido que bendigas nuestra relación, que guíes cada paso que damos, que seas tu el centro de nuestra relación y  por el cual 
+      y que cuando sea tu tiempo, nos permitas construir el hogar que soñamos,
+      Que nuestro amor sea reflejo del tuyo,
+      y que siempre caminemos tomados de tu mano.
+      En el nombre de tu amado hijo Cristo Jesús, amén. 🙏
+    </p>
+  </div>
+
+  <div class="versiculo">
+    <span>Encomienda a Jehová tu camino, y confía en él; y él lo hará.</span>
+    <span class="referencia">— Salmos 37:5</span>
+  </div>
+
+  <div class="pregunta-final">
+    <h1>Una pregunta importante 💍</h1>
+    <p style="font-size: 1.5rem; margin: 30px 0;">¿Quieres seguir siendo el amor de mi vida?</p>
+    <button class="btn-si" onclick="responderSi()">¡Sí, mil veces sí! 💖</button>
+    <button class="btn-no" id="btnNo" onmouseover="moverBotonNo()" ontouchstart="moverBotonNo()">No</button>
+  </div>
+
+  <div class="mensaje-final" id="mensajeFinal">
+    <h1>¡Te amo infinitamente! 💖✝️✨</h1>
+    <p style="font-size: 1.3rem;">Eres lo mejor que Dios me ha dado en la vida.</p>
+    <p style="font-size: 1.3rem;">Prometo amarte cada día más, como Dios nos enseña.</p>
+    <p style="font-size: 1.5rem; margin-top: 30px;">🌹 Te amare por siempre 🌹</p>
+
+    <div class="versiculo" style="margin-top: 40px;">
+      <span>Porque estoy convencido de que ni la muerte ni la vida, ni ángeles ni demonios, ni lo presente ni lo por venir, ni los poderes, ni lo alto ni lo profundo, ni cosa alguna en toda la creación, podrá separarnos del amor de Dios.</span>
+      <span class="referencia">— Romanos 8:38-39</span>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 1rem; opacity: 0.8;">
+      Hecho con todo mi amor para Debora que sera mi futura esposa 💕<br>
+      <span style="font-size: 0.9rem;">Jueves, 20 de agosto de 2026</span>
+    </p>
+  </div>
+</section>
+
+<script>
+  // Crear estrellas
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 3 + 1;
+    star.style.width = size + 'px';
+    star.style.height = size + 'px';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    starsContainer.appendChild(star);
+  }
+
+  // Corazones flotantes
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.className = 'floating-heart';
+    heart.innerHTML = ['💖','💕','💗','💓','💘'][Math.floor(Math.random()*5)];
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDuration = (Math.random() * 4 + 6) + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 10000);
+  }, 800);
+
+  // ============ VERIFICAR CLAVE ============
+  const CLAVE_CORRECTA = "Mallma Marcas";
+  const intentosFallidos = { count: 0 };
+  const mensajesError = [
+    "Esa no es la clave, mi amor 💕 Piensa en nuestra familia...",
+    "Casi, casi... ¿recuerdas los apellidos? 💍",
+    "No te rindas, tú puedes 💖 Piensa en nuestro futuro juntos",
+    "¡Ay, mi amor! La pista era: ¿qué familia formaríamos? ✨",
+    "Un poquito más... piensa en los Mallma Marcas 🥰"
+  ];
+
+  function verificarClave() {
+    const input = document.getElementById('inputClave');
+    const valor = input.value.trim();
+    const mensajeError = document.getElementById('mensajeError');
+
+    if (valor.toLowerCase() === CLAVE_CORRECTA.toLowerCase()) {
+      // ¡Correcto! Transición mágica
+      const flash = document.createElement('div');
+      flash.className = 'transicion-magica';
+      document.body.appendChild(flash);
+
+      setTimeout(() => {
+        document.getElementById('pantallaClave').style.display = 'none';
+        document.getElementById('seccion1').classList.remove('oculto');
+        document.getElementById('seccion1').scrollIntoView({ behavior: 'smooth' });
+        flash.remove();
+      }, 800);
+    } else {
+      // Error
+      mensajeError.textContent = mensajesError[intentosFallidos.count % mensajesError.length];
+      intentosFallidos.count++;
+      input.value = '';
+      input.style.borderColor = '#ff6b9d';
+      setTimeout(() => {
+        input.style.borderColor = 'rgba(255, 215, 0, 0.5)';
+      }, 1000);
+    }
+  }
+
+  // Enter para verificar
+  document.getElementById('inputClave').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') verificarClave();
+  });
+
+  function abrirSobre() {
+    const envelope = document.getElementById('envelope');
+    envelope.classList.add('open');
+    setTimeout(() => {
+      mostrarSeccion('seccion3');
+      setTimeout(() => {
+        document.getElementById('carta').classList.add('visible');
+      }, 300);
+    }, 1500);
+  }
+
+  function mostrarSeccion(id) {
+    document.getElementById(id).classList.remove('oculto');
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Contador
+  const fechaInicio = new Date('2026-06-23T00:00:00'); // ⚠️ CAMBIAR
+  function actualizarContador() {
+    const ahora = new Date();
+    const diff = ahora - fechaInicio;
+    const dias = Math.floor(diff / (1000*60*60*24));
+    const horas = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const minutos = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const segundos = Math.floor((diff % (1000*60)) / 1000);
+    document.getElementById('dias').textContent = dias;
+    document.getElementById('horas').textContent = horas;
+    document.getElementById('minutos').textContent = minutos;
+    document.getElementById('segundos').textContent = segundos;
+  }
+  actualizarContador();
+  setInterval(actualizarContador, 1000);
+
+  // Botón "No" que huye
+  function moverBotonNo() {
+    const btn = document.getElementById('btnNo');
+    const x = (Math.random() - 0.5) * 300;
+    const y = (Math.random() - 0.5) * 200;
+    btn.style.transform = `translate(${x}px, ${y}px)`;
+  }
+
+  function responderSi() {
+    lanzarConfeti();
+    document.getElementById('mensajeFinal').classList.add('visible');
+    document.getElementById('mensajeFinal').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function lanzarConfeti() {
+    const colores = ['#ff6b9d', '#ffd700', '#c06c84', '#ffb6d9', '#ff85b1'];
+    for (let i = 0; i < 150; i++) {
+      setTimeout(() => {
+        const confeti = document.createElement('div');
+        confeti.className = 'confeti';
+        confeti.style.left = Math.random() * 100 + '%';
+        confeti.style.background = colores[Math.floor(Math.random()*colores.length)];
+        confeti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        confeti.style.transform = `rotate(${Math.random()*360}deg)`;
+        if (Math.random() > 0.5) confeti.style.borderRadius = '50%';
+        document.body.appendChild(confeti);
+        setTimeout(() => confeti.remove(), 4000);
+      }, i * 20);
+    }
+  }
+</script>
+
+</body>
+</html>
